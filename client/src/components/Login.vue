@@ -7,12 +7,12 @@
             <h5 class="card-title text-center">Sign In</h5>
             <form @submit.prevent="login()" class="form-signin">
               <div class="form-label-group">
-                <input id="inputEmail" class="form-control" placeholder="Email address" v-model="user.username" required autofocus>
+                <input id="inputEmail" class="form-control" placeholder="Email address" v-model="username" required autofocus>
                 <label for="inputEmail">Email address</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="user.password" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" v-model="password" required>
                 <label for="inputPassword">Password</label>
               </div>
 
@@ -33,13 +33,18 @@
   export default {
     data(){
       return {
-        user:{}
+        username: "",
+        password: ""
       }
     },
     methods: {
       login: function () {
-      let user = this.user;
-       this.$store.dispatch('login', { user })
+      let user = {
+        username: this.username,
+        password: this.password
+      }
+      
+      this.$store.dispatch('login', { user })
        .then(() => this.$router.push('/'))
        .catch(err => console.log(err))
       }
