@@ -16,12 +16,18 @@ import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
 import EditComponent from './components/EditComponent.vue';
+import Login from './components/Login.vue'
 
 const routes = [
   {
       name: 'home',
       path: '/',
       component: HomeComponent
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: Login
   },
   {
       name: 'create',
