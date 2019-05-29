@@ -38,13 +38,17 @@
     },
     methods: {
       login: function () {
-        let uri = 'http://localhost:4000/users/authenticate';
-        this.axios.post(uri, this.user).then((response) => {
-            console.log(response)
-            localStorage.setItem('username', response.data.username)
-            localStorage.setItem('user-token',response.data.token)
-        });
+      let user = this.user;
+       this.$store.dispatch('login', { user })
+       .then(() => this.$router.push('/'))
+       .catch(err => console.log(err))
+      }
+        //let uri = 'http://localhost:4000/users/authenticate';
+        //this.axios.post(uri, this.user).then((response) => {
+        //    console.log(response)
+        //    localStorage.setItem('username', response.data.username)
+        //    localStorage.setItem('user-token',response.data.token)
+        //});
       }
     }
-  }
 </script>

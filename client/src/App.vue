@@ -11,6 +11,12 @@
         <li class="nav-item">
           <router-link to="/posts" class="nav-link">Posts</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/login" class="nav-link">Login</router-link>
+        </li>
+        <li class="nav-item"  v-if="isLoggedIn">
+          <a @click="logout">Logout</a>
+        </li>
       </ul>
     </nav><br />
     <transition name="fade">
@@ -19,12 +25,22 @@
   </div>
 </template>
 
+<script>
+  export default {
+    computed : {
+      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
+    },
+    methods: {
+      logout: function () {
+        this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/login')
+        })
+      }
+    },
+  }
+</script>
+
 <style>
 
 </style>
-
-<script>
-
-    export default{
-    }
-</script>

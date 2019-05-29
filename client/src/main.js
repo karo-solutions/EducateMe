@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import App from './App.vue'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Vue from 'vue';
+import App from './App.vue';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -16,8 +16,9 @@ import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
 import EditComponent from './components/EditComponent.vue';
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
+import Login from './components/Login.vue';
+import Register from './components/Register.vue';
+import store from './store.js';
 
 const routes = [
   {
@@ -54,4 +55,9 @@ const routes = [
 
 const router = new VueRouter({ mode: 'history', routes: routes});
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+const token = localStorage.getItem('token')
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
+
+new Vue(Vue.util.extend({ router,store }, App)).$mount('#app');
