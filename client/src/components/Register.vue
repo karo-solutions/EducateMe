@@ -4,8 +4,8 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
-            <form @submit.prevent="login()" class="form-signin">
+            <h5 class="card-title text-center">Register</h5>
+            <form @submit.prevent="register()" class="form-signin">
               <div class="form-label-group">
                 <input id="inputEmail" class="form-control" placeholder="Email address" v-model="user.username" required autofocus>
                 <label for="inputEmail">Email address</label>
@@ -20,7 +20,7 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
             </form>
           </div>
         </div>
@@ -37,13 +37,11 @@
       }
     },
     methods: {
-      login: function () {
-        let uri = 'http://localhost:4000/users/authenticate';
-        this.axios.post(uri, this.user).then((response) => {
-            console.log(response)
-            localStorage.setItem('username', response.data.username)
-            localStorage.setItem('user-token',response.data.token)
-        });
+      register(){
+      let uri = 'http://localhost:4000/users/register';
+      this.axios.post(uri, this.user).then(() => {
+      this.$router.push({name: 'login'});
+    });
       }
     }
   }
