@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <ul class="navbar-nav">
-        <li class="nav-item">
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
           <router-link to="/" class="nav-link">Home</router-link>
         </li>
         <li class="nav-item">
@@ -11,13 +11,8 @@
         <li class="nav-item">
           <router-link to="/posts" class="nav-link">Posts</router-link>
         </li>
-        <li class="nav-item">
-          <router-link to="/login" class="nav-link">Login</router-link>
-        </li>
-        <li class="nav-item"  v-if="isLoggedIn">
-          <a @click="logout">Logout</a>
-        </li>
       </ul>
+      <button v-if="isLoggedIn" @click="logout" class="btn btn-outline-dark my-sm-0" type="submit">Logout</button>
     </nav><br />
     <transition name="fade">
       <router-view></router-view>

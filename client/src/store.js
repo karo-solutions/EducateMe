@@ -8,16 +8,16 @@ export default new Vuex.Store({
   state: {
     status: '',
     token: localStorage.getItem('token') || '',
-    user : {}
+    username : localStorage.getItem('username') || ''
   },
   mutations: {
     auth_request(state){
         state.status = 'loading'
       },
-      auth_success(state, token, user){
+      auth_success(state, {token, username}){
         state.status = 'success'
         state.token = token
-        state.user = user
+        state.username = username
       },
       auth_error(state){
         state.status = 'error'
@@ -43,10 +43,11 @@ export default new Vuex.Store({
           axios({url: 'http://localhost:4000/users/authenticate', data: user, method: 'POST' })
           .then(resp => {
             const token = resp.data.token
-            const user = resp.data.user
+            const username = resp.data.username
             localStorage.setItem('token', token)
+            localStorage.setItem('username', username)
             axios.defaults.headers.common['Authorization'] = token
-            commit('auth_success', token, user)
+            commit('auth_success', {token, username})
             resolve(resp)
           })
           .catch(err => {
@@ -60,6 +61,7 @@ export default new Vuex.Store({
         return new Promise((resolve, reject) => {
           commit('logout')
           localStorage.removeItem('token')
+          localStorage.removeItem('username')
           delete axios.defaults.headers.common['Authorization']
           resolve()
         })
@@ -67,6 +69,7 @@ export default new Vuex.Store({
   },
   getters : {
         isLoggedIn: state => !!state.token,
-        authStatus: state => state.status
+        authStatus: state => state.status,
+        username: state => state.username
   }
 })
