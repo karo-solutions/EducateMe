@@ -14,13 +14,19 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
-import HomeComponent from './components/HomeComponent.vue';
 import CreateComponent from './components/CreateComponent.vue';
 import IndexComponent from './components/IndexComponent.vue';
 import EditComponent from './components/EditComponent.vue';
-import TeachComponent from './components/TeachComponent.vue';
-import Login from './components/Login.vue';
-import Register from './components/Register.vue';
+
+import HomeComponent from './components/HomeComponent.vue';
+import LoginComponent from './components/Login.vue';
+import RegisterComponent from './components/Register.vue';
+import TeachComponent from './components/Teach.vue';
+import PracticeComponent from './components/Practice.vue';
+import TestComponent from './components/Test.vue';
+import StatsComponent from './components/Stats.vue';
+
+
 import store from './store.js';
 
 const routes = [
@@ -35,7 +41,7 @@ const routes = [
   {
     name: 'login',
     path: '/login',
-    component: Login,
+    component: LoginComponent,
     meta: { 
       requiresAuth: false
     }
@@ -43,9 +49,41 @@ const routes = [
   {
     name: 'register',
     path: '/register',
-    component: Register,
+    component: RegisterComponent,
     meta: {
       requiresAuth: false
+    }
+  },
+  {
+    name: 'teach',
+    path: '/teach',
+    component: TeachComponent,
+    meta: { 
+      requiresAuth: true
+    }
+  },
+  {
+    name: 'practice',
+    path: '/practice',
+    component: PracticeComponent,
+    meta: { 
+      requiresAuth: true
+    }
+  },
+  {
+    name: 'test',
+    path: '/test',
+    component: TestComponent,
+    meta: { 
+      requiresAuth: true
+    }
+  },
+  {
+    name: 'stats',
+    path: '/stats',
+    component: StatsComponent,
+    meta: { 
+      requiresAuth: true
     }
   },
   {
@@ -55,14 +93,6 @@ const routes = [
       meta: { 
         requiresAuth: true
       }
-  },
-  {
-    name: 'teach',
-    path: '/teach',
-    component: TeachComponent,
-    meta: { 
-      requiresAuth: true
-    }
   },
   {
       name: 'posts',

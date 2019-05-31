@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <router-link to="/" class="nav-link">Home</router-link>
+          <router-link to="/" class="nav-link">EducateMe</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/create" class="nav-link">Create Post</router-link>
@@ -12,6 +12,7 @@
           <router-link to="/posts" class="nav-link">Posts</router-link>
         </li>
       </ul>
+      <a v-if="isLoggedIn" href="/stats" class="btn btn-outline-light my-sm-0" >My Stats</a>
       <button v-if="isLoggedIn" @click="logout" class="btn btn-outline-dark my-sm-0" type="submit">Logout</button>
     </nav><br />
     <transition name="fade">
@@ -36,6 +37,8 @@
   }
 </script>
 
-<style>
-
+<style lang="css" scoped>
+button {
+  margin: 5px;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>TeachComp</h1>
+    <h1>TestComp</h1>
 
   </div>
 </template>
