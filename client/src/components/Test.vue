@@ -36,7 +36,7 @@
         <div v-if="finished">
           <h3>Congrationlation you've finished the Test!</h3>
           <button
-            @click="function(){}"
+            @click="submitTestResult()"
             class="btn btn-primary btn-lg btn-block"
             type="submit"
           >Submit and view results!</button>
@@ -69,7 +69,8 @@ export default {
           ((this.rightAnswers + this.wrongAnswers) / this.maxAnswers) * 100 +
           "%"
       };
-    }
+    },
+    username : function(){ return this.$store.getters.username}
   },
   methods: {
     testMode: function() {
@@ -162,6 +163,17 @@ export default {
       this.clientInput = null;
       this.answered = false;
       this.randNrs();
+    },
+    submitTestResult: function(){
+      let uri = 'http://localhost:4000/tests/addResult';
+      let testResult = {
+        username: this.username,
+        wrongAnswers: this.wrongAnswers,
+        rightAnswers: this.rightAnswers
+      }
+      this.axios.post(uri, testResult).then((response) => {
+        this.$router.push({name: 'stats'});
+      });
     }
   }
 };

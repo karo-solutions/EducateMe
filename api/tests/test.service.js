@@ -9,8 +9,6 @@ module.exports = {
 
 async function addResult(testResult) {
     const test = new Test(testResult);
-    console.log(testResult);
-    console.log(test);
     return await test.save()
 }
 

@@ -4,13 +4,13 @@ const testService = require('./test.service');
 
 // routes
 router.post('/addResult', addResult);
-router.get('/getUserResults', getUserResults);
+router.post('/getUserResults', getUserResults);
 
 module.exports = router;
 
 function addResult(req, res, next) {
 
-    testService.addResult(req.body.testResult)
+    testService.addResult(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
 }
