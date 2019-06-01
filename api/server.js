@@ -19,13 +19,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/posts', postRoute);
+
 
 // use JWT auth to secure the api
 app.use(jwt());
 
+app.use('/posts', postRoute);
+
 // api routes
 app.use('/users', require('./users/user.controller.js'));
+app.use('/tests', require('./tests/test.controller.js'));
 
 // global error handler
 app.use(errorHandler);
