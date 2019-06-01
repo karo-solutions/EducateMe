@@ -6,10 +6,13 @@
           <router-link to="/" class="nav-link">EducateMe</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/create" class="nav-link">Create Post</router-link>
+          <router-link to="/teach" class="nav-link">Teach</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/posts" class="nav-link">Posts</router-link>
+          <router-link to="/practice" class="nav-link">Practice</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/test" class="nav-link">Test</router-link>
         </li>
       </ul>
       <a v-if="isLoggedIn" href="/stats" class="btn btn-outline-light my-sm-0" >My Stats</a>

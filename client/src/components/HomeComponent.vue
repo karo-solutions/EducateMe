@@ -46,7 +46,7 @@
               <div class="card-body">
                 <p class="card-text">If you want to improve your math skills press here.</p>
                 <a class="btn btn-block" href="/practice">
-                  <button class="btn btn-primary btn-lg btn-block">Practice</button>
+                  <button class="btn btn-primary btn-lg btn-block">Practice Section</button>
                 </a>
               </div>
             </div>
@@ -63,7 +63,7 @@
               <div class="card-body">
                 <p class="card-text">If you want to test your math skills press here.</p>
                 <a class="btn btn-block" href="/test">
-                  <button class="btn btn-danger btn-lg btn-block">Test</button>
+                  <button class="btn btn-danger btn-lg btn-block">Test Section</button>
                 </a>
               </div>
             </div>
