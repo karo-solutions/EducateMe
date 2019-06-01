@@ -5,17 +5,24 @@
         <h1 class="display-4 font-weight-normal">Practice Area</h1>
             <p class="lead font-weight-normal">Choose the arithmetical Operation:</p>
 
-        <button @click="practice('+')" class="btn btn-primary btn-lg" type="submit">+</button>
-        <button @click="practice('-')" class="btn btn-secondary btn-lg" type="submit">-</button>
+        <button @click="practiceMode('+')" class="btn btn-primary btn-lg btn-scope" type="submit">+</button>
+        <button @click="practiceMode('-')" class="btn btn-secondary btn-lg btn-scope" type="submit">-</button>
         <br>
-        <button @click="practice('⋅')" class="btn btn-success btn-lg" type="submit">⋅</button>
-        <button @click="practice('÷')" class="btn btn-danger btn-lg" type="submit">÷</button>
+        <button @click="practiceMode('⋅')" class="btn btn-success btn-lg btn-scope" type="submit">⋅</button>
+        <button @click="practiceMode('÷')" class="btn btn-danger btn-lg btn-scope" type="submit">÷</button>
       </div>
       <div class="product-device box-shadow d-none d-md-block"></div>
       <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
 
     <div class="col-md-5 p-lg-5 mx-auto my-5" v-if="!!operation"><h1>Practice</h1><br>
-    <h3>{{ n1 }} {{operation}} {{n2}} = </h3><input class="form-control" type="number" required autofocus>
+    <form @submit.prevent="calcResult()">
+    <h3>{{ n1 }} {{operation}} {{n2}} = </h3><input v-model="clientInput" class="form-control" type="number" required autofocus>
+    <button class="btn btn-primary" v-if="answerWrong|answerRight" @click="nextQuestion()">Next Question</button>
+    <button class="btn btn-secondary" v-else type="submit">Submit</button> 
+    <br><br>
+    <div class="alert alert-success" v-if="answerRight" role="alert">Your answer is right!</div>
+    <div class="alert alert-danger" v-if="answerWrong" role="alert">Your answer is wrong! Answer: {{ result }}</div>
+    </form>
     </div>
     </div>
   </div>
@@ -27,41 +34,104 @@
         return {
           operation:"",
           n1:0,
-          n2:0
+          n2:0,
+          clientInput:Number,
+          result: Number,
+          answerRight: false,
+          answerWrong: false
         }
     },
     methods: {
-        practice: function(mode){
+        practiceMode: function(mode){
             switch(mode){
                 case '+':
-                    console.log("PLUS CHOOSEN");
                     this.operation = "+";
                     break;
                 case '-':
-                    console.log("Minus CHOOSEN");
                     this.operation = "-";
                     break;
                 case '⋅':
-                    console.log("Multipicate CHOOSEN");
-                    this.n1 = 5;
-                    this.n2 = 2;
                     this.operation = "⋅";
                     break;
                 case '÷':
-                    console.log("Divide CHOOSEN");
                     this.operation = "÷";
                     break;
-                
             }
-            
+            this.randNrs();
+        },
+        calcResult: function(){
+            switch(this.operation){
+                case '+':
+                    this.result = this.n1 + this.n2;
+                    break;
+                case '-':
+                    this.result = this.n1 - this.n2;
+                    break;
+                case '⋅':
+                    this.result = this.n1 * this.n2;
+                    break;
+                case '÷':
+                    this.result = this.n1 / this.n2;
+                    break;
+            }
+            if (this.result == this.clientInput){
+                this.answerRight = true;
+            } else {
+                this.answerWrong = true;
+            }
+        },
+        randNrs: function(){
+            let min;
+            let max;
+            let tmpnr1;
+            let tmpnr2;
+            switch(this.operation){
+                case '+':
+                    min = 1;
+                    max = 20;
+                    this.n1 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    this.n2 = Math.floor(Math.random() * (max - min + 1 ) ) + min;
+                    break;
+                case '-':
+                    min = 1;
+                    max = 20;
+                    tmpnr1 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    tmpnr2 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    if (tmpnr1 <= tmpnr2){
+                        this.n2 = tmpnr1;
+                        this.n1 = tmpnr2;
+                    } else{
+                        this.n1 = tmpnr1;
+                        this.n2 = tmpnr2;
+                    }
+                    break;
+                case '⋅':
+                    min = 1;
+                    max = 9;
+                    this.n1 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    this.n2 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    break;
+                case '÷':
+                    min = 1;
+                    max = 9;
+                    this.n2 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    tmpnr2 = Math.floor(Math.random() * (max - min + 1) ) + min;
+                    this.n1 = this.n2*tmpnr2;
+                    break;
+            }
+        },
+        nextQuestion: function(){
+            this.answerRight = false;
+            this.answerWrong = false;
+            this.clientInput = null;
+            this.randNrs();
         }
-      
     }
   }
 </script>
 
 <style scoped>
-button {
+.btn-scope {
     height: 130px;
     width: 130px;
     margin: 5px;
