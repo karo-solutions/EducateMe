@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 
 import VueRouter from 'vue-router';
@@ -14,11 +13,8 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
 
-import CreateComponent from './components/CreateComponent.vue';
-import IndexComponent from './components/IndexComponent.vue';
-import EditComponent from './components/EditComponent.vue';
 
-import HomeComponent from './components/HomeComponent.vue';
+import HomeComponent from './components/Home.vue';
 import LoginComponent from './components/Login.vue';
 import RegisterComponent from './components/Register.vue';
 import TeachComponent from './components/Teach.vue';
@@ -31,18 +27,18 @@ import store from './store.js';
 
 const routes = [
   {
-      name: 'home',
-      path: '/',
-      component: HomeComponent,
-      meta: { 
-        requiresAuth: false
-      }
+    name: 'home',
+    path: '/',
+    component: HomeComponent,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     name: 'login',
     path: '/login',
     component: LoginComponent,
-    meta: { 
+    meta: {
       requiresAuth: false
     }
   },
@@ -58,7 +54,7 @@ const routes = [
     name: 'teach',
     path: '/teach',
     component: TeachComponent,
-    meta: { 
+    meta: {
       requiresAuth: true
     }
   },
@@ -66,7 +62,7 @@ const routes = [
     name: 'practice',
     path: '/practice',
     component: PracticeComponent,
-    meta: { 
+    meta: {
       requiresAuth: true
     }
   },
@@ -74,7 +70,7 @@ const routes = [
     name: 'test',
     path: '/test',
     component: TestComponent,
-    meta: { 
+    meta: {
       requiresAuth: true
     }
   },
@@ -82,53 +78,29 @@ const routes = [
     name: 'stats',
     path: '/stats',
     component: StatsComponent,
-    meta: { 
+    meta: {
       requiresAuth: true
     }
-  },
-  {
-      name: 'create',
-      path: '/create',
-      component: CreateComponent,
-      meta: { 
-        requiresAuth: true
-      }
-  },
-  {
-      name: 'posts',
-      path: '/posts',
-      component: IndexComponent,
-      meta: { 
-        requiresAuth: true
-      }
-  },
-  {
-      name: 'edit',
-      path: '/edit/:id',
-      component: EditComponent,
-      meta: { 
-        requiresAuth: true
-      }
   }
 ];
 
-const router = new VueRouter({ mode: 'history', routes: routes});
+const router = new VueRouter({ mode: 'history', routes: routes });
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.isLoggedIn) {
       next()
       return
     }
-    next('/login') 
+    next('/login')
   } else {
-    next() 
+    next()
   }
 })
 
 const token = localStorage.getItem('token')
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer '+token
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = 'Bearer ' + token
 }
 
-new Vue(Vue.util.extend({ router,store }, App)).$mount('#app');
+new Vue(Vue.util.extend({ router, store }, App)).$mount('#app');

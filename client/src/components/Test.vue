@@ -70,7 +70,9 @@ export default {
           "%"
       };
     },
-    username : function(){ return this.$store.getters.username}
+    username: function() {
+      return this.$store.getters.username;
+    }
   },
   methods: {
     testMode: function() {
@@ -164,15 +166,15 @@ export default {
       this.answered = false;
       this.randNrs();
     },
-    submitTestResult: function(){
-      let uri = 'http://localhost:4000/tests/addResult';
+    submitTestResult: function() {
+      let uri = "http://localhost:4000/tests/addResult";
       let testResult = {
         username: this.username,
         wrongAnswers: this.wrongAnswers,
         rightAnswers: this.rightAnswers
-      }
-      this.axios.post(uri, testResult).then((response) => {
-        this.$router.push({name: 'stats'});
+      };
+      this.axios.post(uri, testResult).then(response => {
+        this.$router.push({ name: "stats" });
       });
     }
   }

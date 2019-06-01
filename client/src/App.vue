@@ -15,9 +15,15 @@
           <router-link to="/test" class="nav-link">Test</router-link>
         </li>
       </ul>
-      <a v-if="isLoggedIn" href="/stats" class="btn btn-outline-light my-sm-0" >My Stats</a>
-      <button v-if="isLoggedIn" @click="logout" class="btn btn-outline-dark my-sm-0" type="submit">Logout</button>
-    </nav><br />
+      <a v-if="isLoggedIn" href="/stats" class="btn btn-outline-light my-sm-0">My Stats</a>
+      <button
+        v-if="isLoggedIn"
+        @click="logout"
+        class="btn btn-outline-dark my-sm-0"
+        type="submit"
+      >Logout</button>
+    </nav>
+    <br>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -25,19 +31,20 @@
 </template>
 
 <script>
-  export default {
-    computed : {
-      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
-    },
-    methods: {
-      logout: function () {
-        this.$store.dispatch('logout')
-        .then(() => {
-          this.$router.push('/login')
-        })
-      }
-    },
+export default {
+  computed: {
+    isLoggedIn: function() {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
+  methods: {
+    logout: function() {
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
+      });
+    }
   }
+};
 </script>
 
 <style lang="css" scoped>

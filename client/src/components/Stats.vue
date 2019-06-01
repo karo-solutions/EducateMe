@@ -29,12 +29,14 @@ export default {
   },
   created() {
     let uri = "http://localhost:4000/tests/getUserResults";
-    this.axios.post(uri, this.username ).then(response => {
+    this.axios.post(uri, this.username).then(response => {
       this.testResults = response.data;
     });
   },
-  computed:{
-    username : function(){ return {username: this.$store.getters.username}}
+  computed: {
+    username: function() {
+      return { username: this.$store.getters.username };
+    }
   },
   methods: {}
 };
