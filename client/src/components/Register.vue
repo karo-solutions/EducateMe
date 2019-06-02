@@ -100,7 +100,7 @@ export default {
       } else {
         this.errorPWMatch = false;
         this.errorUserExist = false;
-        let uri = "http://localhost:4000/users/register";
+        let uri = "/users/register";
         this.axios
           .post(uri, this.user)
           .then(() => {

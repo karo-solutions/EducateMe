@@ -8,6 +8,7 @@ Vue.use(VueRouter);
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
+import config from './config.json';
 
 Vue.use(VueAxios, axios);
 
@@ -23,7 +24,10 @@ import TestComponent from './components/Test.vue';
 import StatsComponent from './components/Stats.vue';
 
 
+
 import store from './store.js';
+
+axios.defaults.baseURL = config.apiBaseUrl;
 
 const routes = [
   {

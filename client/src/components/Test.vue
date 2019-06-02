@@ -167,7 +167,7 @@ export default {
       this.randNrs();
     },
     submitTestResult: function() {
-      let uri = "http://localhost:4000/tests/addResult";
+      let uri = "/tests/addResult";
       let testResult = {
         username: this.username,
         wrongAnswers: this.wrongAnswers,

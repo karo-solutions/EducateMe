@@ -29,18 +29,9 @@ export default new Vuex.Store({
   },
   actions: {
     login({ commit }, user) {
-
-      /*let uri = 'http://localhost:4000/users/authenticate';
-      console.log(user);
-      this.axios.post(uri, this.user).then((response) => {
-          console.log(response)
-          localStorage.setItem('username', response.data.username)
-          localStorage.setItem('user-token',response.data.token)
-      }).catch(err => console.log(err));*/
-
       return new Promise((resolve, reject) => {
         commit('auth_request')
-        axios({ url: 'http://localhost:4000/users/authenticate', data: user, method: 'POST' })
+        axios({ url: '/users/authenticate', data: user, method: 'POST' })
           .then(resp => {
             const token = resp.data.token
             const username = resp.data.username

@@ -28,7 +28,7 @@ export default {
     };
   },
   created() {
-    let uri = "http://localhost:4000/tests/getUserResults";
+    let uri = "/tests/getUserResults";
     this.axios.post(uri, this.username).then(response => {
       this.testResults = response.data;
     });
