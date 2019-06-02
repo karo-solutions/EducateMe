@@ -1,28 +1,21 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <router-link to="/" class="nav-link">EducateMe</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/teach" class="nav-link">Teach</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/practice" class="nav-link">Practice</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/test" class="nav-link">Test</router-link>
-        </li>
-      </ul>
-      <a v-if="isLoggedIn" href="/stats" class="btn btn-outline-light my-sm-0">My Stats</a>
-      <button
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">EducateMe</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/">Home</a>
+        <a class="p-2 text-dark" href="/teach">Teach</a>
+        <a class="p-2 text-dark" href="/practice">Practice</a>
+        <a class="p-2 text-dark" href="/test">Test</a>
+      </nav>
+      <a class="btn btn-outline-primary" v-if="isLoggedIn" href="/stats">My Stats</a>
+        <button
         v-if="isLoggedIn"
         @click="logout"
         class="btn btn-outline-dark my-sm-0"
         type="submit"
       >Logout</button>
-    </nav>
+    </div>
     <br>
     <transition name="fade">
       <router-view></router-view>
