@@ -34,7 +34,7 @@
           </div>
         </form>
         <div v-if="finished">
-          <h3>Congrationlation you've finished the Test!</h3>
+          <h3>Congrationlations you've finished the Test!</h3>
           <button
             @click="submitTestResult()"
             class="btn btn-primary btn-lg btn-block"

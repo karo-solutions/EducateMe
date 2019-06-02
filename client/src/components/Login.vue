@@ -31,6 +31,11 @@
               <div class="custom-control custom-checkbox mb-3">
                 <!--input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label-- class="custom-control-label" for="customCheck1">Remember password</label-->
+                <div
+                  class="alert alert-danger"
+                  v-if="errorAuth"
+                  role="alert"
+                >Wrong Username or Password!</div>
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
             </form>
@@ -50,7 +55,8 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      errorAuth: false
     };
   },
   methods: {
@@ -63,7 +69,7 @@ export default {
       this.$store
         .dispatch("login", { user })
         .then(() => this.$router.push("/"))
-        .catch(err => console.log(err));
+        .catch(err => this.errorAuth = true);
     }
   }
 };

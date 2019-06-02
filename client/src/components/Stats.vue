@@ -11,9 +11,9 @@
       </thead>
       <tbody>
         <tr v-for="testResult in testResults" :key="testResult._id">
-          <td>{{ testResult.createdDate }}</td>
-          <td>{{ testResult.wrongAnswers }}</td>
+          <td>{{ parseDate(testResult.createdDate) }}</td>
           <td>{{ testResult.rightAnswers }}</td>
+          <td>{{ testResult.wrongAnswers }}</td>
         </tr>
       </tbody>
     </table>
@@ -38,6 +38,13 @@ export default {
       return { username: this.$store.getters.username };
     }
   },
-  methods: {}
+  methods: {
+    parseDate: function(isoDate) {
+      let date = new Date(isoDate);
+
+      return date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate() +'  '+ date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+      //return date;
+    }
+  }
 };
 </script>
