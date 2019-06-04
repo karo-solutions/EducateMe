@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+## Set api base URL
+open *src/config.json* and enter your api base URL
+
 ## Build Setup
 
 ``` bash
@@ -15,4 +18,15 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Deploy on Production
+
+copy *index.html* and *dist/* folder to your webroot
+
+Always serve index.html for any request
+Example nginx configuration:
+```
+    location / {
+        root {{app_root}}/dist;
+        try_files $uri /index.html;
+    }
+```
