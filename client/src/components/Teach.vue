@@ -69,7 +69,7 @@
           Multiplication (⋅)
           <br>
           <small>
-          <span style="color: #008000;">&nbsp; 10 &nbsp;</span>&nbsp; * &nbsp;<span style="color: #ff00ff;">&nbsp; 5 &nbsp;</span>&nbsp; = &nbsp;<span style="color: #ff0000;">&nbsp; 40 &nbsp;</span>
+          <span style="color: #008000;">&nbsp; 10 &nbsp;</span>&nbsp; * &nbsp;<span style="color: #ff00ff;">&nbsp; 5 &nbsp;</span>&nbsp; = &nbsp;<span style="color: #ff0000;">&nbsp; 50 &nbsp;</span>
           <br>
           <span style="color: #008000;">Factor</span> * <span style="color: #ff00ff;">Factor</span> = <span style="color: #ff0000;">Product</span>
           </small>
