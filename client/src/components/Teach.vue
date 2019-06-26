@@ -16,9 +16,8 @@
         </h2>
         <p
           class="lead"
-        >Die Addition, umgangssprachlich auch Plus-Rechnen genannt, ist eine der vier Grundrechenarten. Oft sagt man statt "addieren" auch "zusammenzählen".<br>
-         Die Zahlen, die addiert werden, nennt man Summanden , den Ausdruck:<br>
-         1. Summand + 2. Summand nennt man Summe und das Ergebnis der Rechnung: Wert der Summe.</p>
+        >The <strong>addition</strong> is one of the four basic arithmetic operations.  The numbers that are added are called <strong>summands.</strong><br>
+        <strong>1. Summand + 2. Summand</strong> is called <strong>Sum</strong> and the result of the calculation is the value of the sum.</p>
       </div>
       <div class="col-md-5">
         <img
@@ -46,9 +45,9 @@
         </h2>
         <p
           class="lead"
-        >Die Subtraktion ist eine der vier Grundrechenarten. In der Grundschule und in der Umgangssprache verwendet man meist den Ausdruck Abziehen für die Subtraktion von zwei oder mehr Zahlen.<br>
-        Die Zahl von welcher "abgezogen" wird nennt man Minuend, die Zahl welche "abgezogen" wird Subtrahend.<br>
-        Der Ausdruck Minuend - Subtrahend wird Differenz genannt und das Ergebnis der Rechnung Wert der Differenz.
+        >The <strong>subtraction</strong> is one of the four basic arithmetic operations. In elementary and colloquial language, one usually uses the term subtract for the subtraction of two or more numbers.<br>
+        The number of which is "subtracted" is called <strong>minuend</strong>, the number which is "subtracted" <strong>subtrahend</strong>.<br>
+        <strong>Minuend - Subtrahend </strong> is called the <strong>Difference</strong> and the result of the calculation is the value of the difference.
         </p>
       </div>
       <div class="col-md-5 order-md-1">
@@ -70,17 +69,16 @@
           Multiplication (⋅)
           <br>
           <small>
-          <span style="color: #008000;">&nbsp; 5 &nbsp;</span>&nbsp; * &nbsp;<span style="color: #ff00ff;">&nbsp; 8 &nbsp;</span>&nbsp; = &nbsp;<span style="color: #ff0000;">&nbsp; 40 &nbsp;</span>
+          <span style="color: #008000;">&nbsp; 10 &nbsp;</span>&nbsp; * &nbsp;<span style="color: #ff00ff;">&nbsp; 5 &nbsp;</span>&nbsp; = &nbsp;<span style="color: #ff0000;">&nbsp; 40 &nbsp;</span>
           <br>
           <span style="color: #008000;">Factor</span> * <span style="color: #ff00ff;">Factor</span> = <span style="color: #ff0000;">Product</span>
           </small>
         </h2>
         <p
           class="lead"
-        >
-        Die Multiplikation ist eine der vier Grundrechenarten. Anstatt eine Zahl öfter zusammen zu zählen
-        kann man mit dem Mal-Nehmen schneller auf ein Ergebnis kommen und hat weniger Schreibarbeit.<br>
-        Die Multiplikation setzt sich aus dem Produkt, das ist die Rechnung und dem Wert des Produkts, das ist das Ergebnis der Rechnung zusammen. Das Produkt setzt sich aus Faktoren zusammen. Es kann zwei oder mehr Faktoren geben.
+        >The <strong>multiplication</strong> is one of the four basic arithmetic operations. Instead of counting a number more often, you can multiply it to get faster to a result with less paperwork.<br>
+        For example, to multiply the number 10 five times, means to add 10 + 10 + 10 + 10 + 10.<br>
+        <strong>Factor * Factor</strong> is called <strong>Product</strong> and the result of the calculation is the value of the product.
         </p>
       </div>
       <div class="col-md-5">
@@ -109,9 +107,8 @@
         </h2>
         <p
           class="lead"
-        >Die Division ist eine der vier Grundrechenarten. Zum Beispiel für 6:2, spricht man 6 dividiert durch 2, oder auch 6 geteilt durch 2.<br>
-        Die Division setzt sich aus verschiedenen Begriffen zusammen.Teilt man so zum Beispiel die Zahl 10 durch 5, heißt 10 Dividend und 5 Divisor. Die Rechnung 10:5 nennt man Quotient. Das Ergebnis der Rechnung nennt man Wert des Quotienten.
-        
+        >The <strong>division</strong> is one of the four basic arithmetic operations. The division is made up of different terms. For example, dividing the number 6 by 2, means 6 as <strong>dividend</strong> and 2 as <strong>divisor</strong>.<br>
+        <strong>Dividend : Divisor</strong> is called  <strong>Quotient</strong> and result of the calculation is the value of the quotient.
         </p>
       </div>
       <div class="col-md-5 order-md-1">
